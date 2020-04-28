@@ -11,14 +11,28 @@ export default class Contact extends Component {
         });
     }
 
+    deleteContact = (event) => {
+
+    }
+
     render() {
         let { name, email, phone } = this.props.contact;
+
         return (
             <div className="mt-4 card card-body">
                 <h5 className="alert alert-dark">
                     Name: <strong> {name.toUpperCase()} </strong>
                     <span>
-                        <FontAwesomeIcon icon="sort-down" onClick={this.toggleShowDetails}></FontAwesomeIcon>
+                        <FontAwesomeIcon
+                            icon="sort-down"
+                            onClick={this.toggleShowDetails}
+                        />
+                    </span>
+                    <span className="float-right" style={{ color: "red" }}>
+                        <FontAwesomeIcon
+                            icon="user-minus"
+                            onClick={this.deleteContact}
+                        />
                     </span>
                 </h5>
                 {

@@ -3,9 +3,9 @@ import Header from './Components/Header';
 import Contacts from './Components/Contacts'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faSortDown } from '@fortawesome/free-solid-svg-icons'
+import { faSortDown, faUserMinus } from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faSortDown)
+library.add(fab, faSortDown, faUserMinus);
 
 class App extends Component {
 	render() {
