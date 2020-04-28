@@ -2,7 +2,7 @@ import React, { Component } from 'react'
 
 export default class Contact extends Component {
     render() {
-        let { name, email, phone } = this.props;
+        let { name, email, phone } = this.props.contact;
         return (
             <div className="mt-4">
                 <h5 className="alert alert-dark">
