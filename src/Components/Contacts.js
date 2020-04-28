@@ -28,17 +28,32 @@ class Contacts extends Component {
         }
     }
 
+    deleteContactWithId(toDeleteId, event) {
+        let { contacts } = this.state;
+        let updatedContacts = contacts.filter(contact => contact.id !== toDeleteId);
+        this.setState({
+            contacts: updatedContacts
+        });
+    }
+
     render() {
         const { contacts } = this.state;
 
         return (
             <React.Fragment>
-                {contacts.map(contact => (
-                    <Contact
-                        key={contact.id}
-                        contact={contact}
-                    />
-                ))}
+                {
+                    contacts.length > 0 ?
+                        contacts.map(contact => (
+                            <Contact
+                                key={contact.id}
+                                contact={contact}
+                                deleteContact={this.deleteContactWithId.bind(this, contact.id)}
+                            />
+                        )) :
+                        <div className="alert alert-success d-flex justify-content-center" >
+                            No contacts found!
+                        </div>
+                }
             </React.Fragment>
         )
     }

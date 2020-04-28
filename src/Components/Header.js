@@ -5,7 +5,7 @@ export default class Header extends Component {
         let { title } = this.props;
         return (
             <div>
-                <h1 className="alert alert-primary">{title}</h1>
+                <h1 className="alert alert-primary d-flex justify-content-center">{title}</h1>
             </div>
         )
     }

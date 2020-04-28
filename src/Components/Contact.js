@@ -12,7 +12,7 @@ export default class Contact extends Component {
     }
 
     deleteContact = (event) => {
-
+        this.props.deleteContact();
     }
 
     render() {
