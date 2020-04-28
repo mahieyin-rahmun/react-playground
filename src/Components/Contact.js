@@ -4,7 +4,7 @@ export default class Contact extends Component {
     render() {
         let { name, email, phone } = this.props.contact;
         return (
-            <div className="mt-4">
+            <div className="mt-4 card card-body">
                 <h5 className="alert alert-dark">
                     Name: <strong> {name.toUpperCase()} </strong>
                 </h5>
