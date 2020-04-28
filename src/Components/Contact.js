@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 export default class Contact extends Component {
     render() {
@@ -7,6 +8,9 @@ export default class Contact extends Component {
             <div className="mt-4 card card-body">
                 <h5 className="alert alert-dark">
                     Name: <strong> {name.toUpperCase()} </strong>
+                    <span>
+                        <FontAwesomeIcon icon="sort-down"></FontAwesomeIcon>
+                    </span>
                 </h5>
                 <ul className="list-group">
                     <li className="list-group-item">
