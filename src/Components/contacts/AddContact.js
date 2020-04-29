@@ -16,7 +16,7 @@ export default class AddContact extends Component {
       let { name, email, phone } = data;
       let currentErrors = [];
 
-      let emailPattern = RegExp(/^[a-z0-9._]*@(gmail|yahoo|hotmail|outlook)\.com$/)
+      let emailPattern = RegExp(/^[a-z0-9._]+@(gmail|yahoo|hotmail|outlook)\.com$/)
       let phonePattern = RegExp(/^[0-9]{3}-[0-9]{3}-[0-9]{4}$/);
 
       if (name.length < 5) {
