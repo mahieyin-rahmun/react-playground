@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import Header from './Components/Header';
 import Contacts from './Components/Contacts'
+import { Provider } from './Context'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
 import { faSortDown, faUserMinus } from '@fortawesome/free-solid-svg-icons'
@@ -10,10 +11,12 @@ library.add(fab, faSortDown, faUserMinus);
 class App extends Component {
 	render() {
 		return (
-			<div className="container">
-				<Header title="Contact Manager" />
-				<Contacts />
-			</div>
+			<Provider>
+				<div className="container">
+					<Header title="Contact Manager" />
+					<Contacts />
+				</div>
+			</Provider>
 		)
 	}
 }
