@@ -3,18 +3,20 @@ import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Consumer } from '../../Context'
 
 export default class Contact extends Component {
-	state = { show: false };
+	state = {
+		showDetails: false
+	};
 
 	toggleShowDetails = (event) => {
 		// setting the state
 		this.setState({
-			show: !this.state.show
+			showDetails: !this.state.showDetails
 		});
 	}
 
 	deleteContact = (id, dispatch, event) => {
 		console.log("here");
-		
+
 		dispatch({
 			type: "DELETE_CONTACT",
 			payload: id
@@ -45,10 +47,15 @@ export default class Contact extends Component {
 											onClick={this.deleteContact.bind(this, id, dispatch)}
 										/>
 									</span>
+									<span className="float-right mr-4" style={{ color: "#000" }}>
+										<FontAwesomeIcon
+											icon="pen"
+										/>
+									</span>
 								</h5>
 								{
 									// check value of show variable
-									this.state.show ?
+									this.state.showDetails ?
 										// render the info if it is true
 										(
 											<ul className="list-group">
@@ -59,7 +66,9 @@ export default class Contact extends Component {
 													<strong>Phone Number</strong>: {phone}
 												</li>
 											</ul>
-										) :
+										)
+
+										:
 										// else render an empty fragment
 										<React.Fragment>
 										</React.Fragment>

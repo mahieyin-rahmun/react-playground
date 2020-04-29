@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import { generateID, maxIdLength } from './Utils'
 
 const Context = React.createContext();
 
@@ -9,9 +10,18 @@ const reducer = (state, action) => {
 				...state,
 				contacts: state.contacts.filter(contact => contact.id !== action.payload)
 			}
-	
+
+		case "ADD_CONTACT":
+			let contacts = state.contacts;
+			contacts.push(action.payload);
+
+			return {
+				...state,
+				contacts: contacts
+			}
+
 		default:
-			return state;		
+			return state;
 	}
 }
 
@@ -19,19 +29,19 @@ export class Provider extends Component {
 	state = {
 		contacts: [
 			{
-				id: 1,
+				id: generateID(maxIdLength),
 				name: "John Doe",
 				email: "jdoe@gmail.com",
 				phone: "555-555-5555"
 			},
 			{
-				id: 2,
+				id: generateID(maxIdLength),
 				name: "Robert Downey Jr.",
 				email: "robertd@gmail.com",
 				phone: "333-333-3333"
 			},
 			{
-				id: 3,
+				id: generateID(maxIdLength),
 				name: "Luna Lovegood",
 				email: "luna.lovegood@outlook.com",
 				phone: "777-777-7777"

@@ -7,9 +7,9 @@ import AddContact from './Components/contacts/AddContact'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
-import { faSortDown, faUserMinus } from '@fortawesome/free-solid-svg-icons'
+import { faSortDown, faUserMinus, faPen } from '@fortawesome/free-solid-svg-icons'
 
-library.add(fab, faSortDown, faUserMinus);
+library.add(fab, faSortDown, faUserMinus, faPen);
 
 class App extends Component {
 	render() {
