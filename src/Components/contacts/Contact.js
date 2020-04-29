@@ -1,6 +1,6 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { Consumer } from '../Context'
+import { Consumer } from '../../Context'
 
 export default class Contact extends Component {
 	state = { show: false };

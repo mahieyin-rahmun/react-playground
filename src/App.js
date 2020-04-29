@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
-import Header from './Components/Header';
-import Contacts from './Components/Contacts'
+import Header from './Components/layouts/Header';
+import Contacts from './Components/contacts/Contacts'
 import { Provider } from './Context'
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
