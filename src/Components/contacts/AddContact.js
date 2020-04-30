@@ -4,7 +4,7 @@ import { Consumer } from '../../Context'
 import AlertMessage from '../layouts/AlertMessage'
 import InputGroup from './InputGroup'
 
-import { generateID, maxIdLength } from '../../Utils'
+import axios from 'axios'
 
 export default class AddContact extends Component {
   state = {
@@ -12,7 +12,6 @@ export default class AddContact extends Component {
     email: "",
     phone: "",
     errors: [],
-    successMsg: ""
   };
 
   validateFormData = (data) => {
@@ -60,15 +59,19 @@ export default class AddContact extends Component {
         if (errs.length === 0) {
           let { name, email, phone } = this.state;
 
-          dispatch({
-            type: "ADD_CONTACT",
-            payload: {
-              id: generateID(maxIdLength),
-              name,
-              email,
-              phone
-            }
-          });
+          let newContact = {
+            name,
+            email,
+            phone
+          };
+
+          axios.post("https://jsonplaceholder.typicode.com/users/", newContact)
+            .then((response) => {
+              dispatch({
+                type: "ADD_CONTACT",
+                payload: response.data
+              });
+            });
 
           // reset state after adding new contact
           this.setState({
