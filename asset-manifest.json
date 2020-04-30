@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/react-playground/static/css/main.5ecd60fb.chunk.css",
-    "main.js": "/react-playground/static/js/main.107ea978.chunk.js",
-    "main.js.map": "/react-playground/static/js/main.107ea978.chunk.js.map",
+    "main.js": "/react-playground/static/js/main.98142026.chunk.js",
+    "main.js.map": "/react-playground/static/js/main.98142026.chunk.js.map",
     "runtime-main.js": "/react-playground/static/js/runtime-main.c84832da.js",
     "runtime-main.js.map": "/react-playground/static/js/runtime-main.c84832da.js.map",
     "static/js/2.67dfb575.chunk.js": "/react-playground/static/js/2.67dfb575.chunk.js",
     "static/js/2.67dfb575.chunk.js.map": "/react-playground/static/js/2.67dfb575.chunk.js.map",
     "index.html": "/react-playground/index.html",
-    "precache-manifest.fd4255d2adc2b3d15694e321138883de.js": "/react-playground/precache-manifest.fd4255d2adc2b3d15694e321138883de.js",
+    "precache-manifest.0b176694f72d58939cea6e20fff0268b.js": "/react-playground/precache-manifest.0b176694f72d58939cea6e20fff0268b.js",
     "service-worker.js": "/react-playground/service-worker.js",
     "static/css/main.5ecd60fb.chunk.css.map": "/react-playground/static/css/main.5ecd60fb.chunk.css.map",
     "static/js/2.67dfb575.chunk.js.LICENSE.txt": "/react-playground/static/js/2.67dfb575.chunk.js.LICENSE.txt"
@@ -17,6 +17,6 @@
     "static/js/runtime-main.c84832da.js",
     "static/js/2.67dfb575.chunk.js",
     "static/css/main.5ecd60fb.chunk.css",
-    "static/js/main.107ea978.chunk.js"
+    "static/js/main.98142026.chunk.js"
   ]
 }
