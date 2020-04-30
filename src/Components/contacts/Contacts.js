@@ -11,6 +11,9 @@ class Contacts extends Component {
             const { contacts } = value;
             return (
               <React.Fragment>
+                <h1 className="display-4 mb-3">
+                  <span className="text-danger">Contact List</span>
+                </h1>
                 {
                   contacts.length > 0 ?
                     contacts.map(contact => (
