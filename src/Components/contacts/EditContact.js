@@ -91,7 +91,7 @@ export default class AddContact extends Component {
 							});
 
 							// redirect to the home page after adding new contact
-							this.props.history.push("/");
+							this.props.history.push("/react-playground");
 						});
 				}
 			});
