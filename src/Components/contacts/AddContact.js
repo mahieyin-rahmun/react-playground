@@ -133,43 +133,6 @@ export default class AddContact extends Component {
                       value={phone}
                       onChange={this.handleChange}
                     />
-
-
-
-                    {/* <div className="form-group">
-                      <label htmlFor="name">Name</label>
-                      <input
-                        type="text"
-                        className="form-control form-control-lg"
-                        name="name"
-                        placeholder="e.g. Awesome Human"
-                        value={name}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="email">Email</label>
-                      <input
-                        type="text"
-                        className="form-control form-control-lg"
-                        name="email"
-                        placeholder="e.g. jfk@xyz.com"
-                        value={email}
-                        onChange={this.handleChange}
-                      />
-                    </div>
-                    <div className="form-group">
-                      <label htmlFor="phone">Phone Number</label>
-                      <input
-                        type="text"
-                        className="form-control form-control-lg"
-                        name="phone"
-                        placeholder="e.g. 567-567-5959"
-                        value={phone}
-                        onChange={this.handleChange}
-                      />
-                    </div> */}
-
                     <input
                       className="btn btn-large btn-block"
                       type="submit"

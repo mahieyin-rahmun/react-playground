@@ -2,6 +2,7 @@ import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Consumer } from '../../Context'
 import AlertMessage from '../layouts/AlertMessage'
+import { Link } from "react-router-dom"
 import axios from 'axios'
 
 
@@ -74,9 +75,9 @@ export default class Contact extends Component {
 										/>
 									</span>
 									<span className="float-right mr-4" style={{ color: "#000" }}>
-										<FontAwesomeIcon
-											icon="pen"
-										/>
+										<Link to={`/update/${id}`}>
+											<FontAwesomeIcon icon="pen" />
+										</Link>
 									</span>
 								</h5>
 								{
