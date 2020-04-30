@@ -12,7 +12,8 @@ export default class AddContact extends Component {
 		email: "",
 		phone: "",
 		errors: [],
-		updating: false
+		updating: false,
+		fetching: false
 	};
 
 	validateFormData = (data) => {
@@ -97,6 +98,11 @@ export default class AddContact extends Component {
 	}
 
 	componentDidMount() {
+		this.setState({
+			...this.state,
+			fetching: !this.state.fetching
+		});
+
 		let userId = this.props.match.params.id;
 		fetch(`https://jsonplaceholder.typicode.com/users/${userId}`)
 			.then((response) => response.json())
@@ -107,7 +113,12 @@ export default class AddContact extends Component {
 					name: name,
 					email: email,
 					phone: phone
-				})
+				});
+
+				this.setState({
+					...this.state,
+					fetching: !this.state.fetching
+				});
 			});
 	}
 
@@ -122,67 +133,72 @@ export default class AddContact extends Component {
 						const { dispatch } = value;
 
 						return (
-							<div className="card mb-3 mt-4">
-								<React.Fragment>
-									{
-										this.state.updating ? (
-											<AlertMessage className="alert alert-info" message="Updating contact..." />
-										) :
-											<div className="card-header">Update Contact</div>
-									}
-								</React.Fragment>
-								<React.Fragment>
-									{
-										this.state.errors.map((errorMsg, index) => (
-											<AlertMessage message={errorMsg} className="alert alert-danger" key={index} />
-										))
-									}
-								</React.Fragment>
-								<div className="card-body">
-									<form>
-										<InputGroup
-											label="Name"
-											type="text"
-											name="name"
-											placeholder="e.g. Awesome Human"
-											value={name}
-											onChange={this.handleChange}
-										/>
-										<InputGroup
-											label="Email"
-											type="email"
-											name="email"
-											placeholder="e.g. jfk@xyz.com"
-											value={email}
-											onChange={this.handleChange}
-										/>
-										<InputGroup
-											label="Phone Number"
-											type="text"
-											name="phone"
-											placeholder="e.g. 567-567-5959"
-											value={phone}
-											onChange={this.handleChange}
-										/>
-										{
-											this.state.updating ?
-												<input
-													className="btn btn-large btn-block"
-													type="submit"
-													value="Update Contact"
-													onClick={this.handleSubmit.bind(this, dispatch)}
-													disabled
+							this.state.fetching ?
+								(<React.Fragment>
+									<AlertMessage className="alert alert-info mt-4" message="Loading data..." />
+								</React.Fragment>) : (
+									<div className="card mb-3 mt-4">
+										<React.Fragment>
+											{
+												this.state.updating ? (
+													<AlertMessage className="alert alert-info" message="Updating contact..." />
+												) :
+													<div className="card-header">Update Contact</div>
+											}
+										</React.Fragment>
+										<React.Fragment>
+											{
+												this.state.errors.map((errorMsg, index) => (
+													<AlertMessage message={errorMsg} className="alert alert-danger" key={index} />
+												))
+											}
+										</React.Fragment>
+										<div className="card-body">
+											<form>
+												<InputGroup
+													label="Name"
+													type="text"
+													name="name"
+													placeholder="e.g. Awesome Human"
+													value={name}
+													onChange={this.handleChange}
 												/>
-												: <input
-													className="btn btn-large btn-block"
-													type="submit"
-													value="Update Contact"
-													onClick={this.handleSubmit.bind(this, dispatch)}
+												<InputGroup
+													label="Email"
+													type="email"
+													name="email"
+													placeholder="e.g. jfk@xyz.com"
+													value={email}
+													onChange={this.handleChange}
 												/>
-										}
-									</form>
-								</div>
-							</div>
+												<InputGroup
+													label="Phone Number"
+													type="text"
+													name="phone"
+													placeholder="e.g. 567-567-5959"
+													value={phone}
+													onChange={this.handleChange}
+												/>
+												{
+													this.state.updating ?
+														<input
+															className="btn btn-large btn-block"
+															type="submit"
+															value="Update Contact"
+															onClick={this.handleSubmit.bind(this, dispatch)}
+															disabled
+														/>
+														: <input
+															className="btn btn-large btn-block"
+															type="submit"
+															value="Update Contact"
+															onClick={this.handleSubmit.bind(this, dispatch)}
+														/>
+												}
+											</form>
+										</div>
+									</div>
+								)
 						)
 					}
 				}
