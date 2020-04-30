@@ -1,7 +1,7 @@
 import React, { Component } from 'react'
 import { Consumer } from '../../Context'
 
-import Errors from '../layouts/Errors'
+import AlertMessage from '../layouts/AlertMessage'
 import InputGroup from './InputGroup'
 
 import { generateID, maxIdLength } from '../../Utils'
@@ -11,7 +11,8 @@ export default class AddContact extends Component {
     name: "",
     email: "",
     phone: "",
-    errors: []
+    errors: [],
+    successMsg: ""
   };
 
   validateFormData = (data) => {
@@ -76,6 +77,9 @@ export default class AddContact extends Component {
             phone: "",
             errors: []
           });
+
+          // redirect to the home page after adding new contact
+          this.props.history.push("/");
         }
       });
   }
@@ -96,7 +100,7 @@ export default class AddContact extends Component {
                 <React.Fragment>
                   {
                     this.state.errors.map((errorMsg, index) => (
-                      <Errors message={errorMsg} key={index} />
+                      <AlertMessage message={errorMsg} className="alert alert-danger" key={index} />
                     ))
                   }
                 </React.Fragment>
