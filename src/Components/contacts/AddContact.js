@@ -1,6 +1,9 @@
 import React, { Component } from 'react'
 import { Consumer } from '../../Context'
+
 import Errors from '../layouts/Errors'
+import InputGroup from './InputGroup'
+
 import { generateID, maxIdLength } from '../../Utils'
 
 export default class AddContact extends Component {
@@ -99,7 +102,34 @@ export default class AddContact extends Component {
                 </React.Fragment>
                 <div className="card-body">
                   <form>
-                    <div className="form-group">
+                    <InputGroup
+                      label="Name"
+                      type="text"
+                      name="name"
+                      placeholder="e.g. Awesome Human"
+                      value={name}
+                      onChange={this.handleChange}
+                    />
+                    <InputGroup
+                      label="Email"
+                      type="email"
+                      name="email"
+                      placeholder="e.g. jfk@xyz.com"
+                      value={email}
+                      onChange={this.handleChange}
+                    />
+                    <InputGroup
+                      label="Phone Number"
+                      type="text"
+                      name="phone"
+                      placeholder="e.g. 567-567-5959"
+                      value={phone}
+                      onChange={this.handleChange}
+                    />
+
+
+
+                    {/* <div className="form-group">
                       <label htmlFor="name">Name</label>
                       <input
                         type="text"
@@ -131,7 +161,7 @@ export default class AddContact extends Component {
                         value={phone}
                         onChange={this.handleChange}
                       />
-                    </div>
+                    </div> */}
 
                     <input
                       className="btn btn-large btn-block"
