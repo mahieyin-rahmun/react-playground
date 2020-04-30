@@ -23,10 +23,10 @@ class App extends Component {
 					<div className="container">
 						<Header title="Contact Manager" />
 						<Switch>
-							<Route exact path="/" component={Contacts} />
-							<Route exact path="/add" component={AddContact} />
-							<Route exact path="/about" component={About} />
-							<Route exact path="/update/:id" component={EditContact} />
+							<Route exact path="/react-playground" component={Contacts} />
+							<Route exact path="/react-playground/add" component={AddContact} />
+							<Route exact path="/react-playground/about" component={About} />
+							<Route exact path="/react-playground/update/:id" component={EditContact} />
 							<Route component={NotFound} />
 						</Switch>
 					</div>
