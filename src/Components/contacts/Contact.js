@@ -1,10 +1,14 @@
 import React, { Component } from 'react'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 import { Consumer } from '../../Context'
+import AlertMessage from '../layouts/AlertMessage'
+import axios from 'axios'
+
 
 export default class Contact extends Component {
 	state = {
-		showDetails: false
+		showDetails: false,
+		isDeleting: false
 	};
 
 	toggleShowDetails = (event) => {
@@ -15,12 +19,25 @@ export default class Contact extends Component {
 	}
 
 	deleteContact = (id, dispatch, event) => {
-		console.log("here");
-
-		dispatch({
-			type: "DELETE_CONTACT",
-			payload: id
+		this.setState({
+			...this.state,
+			isDeleting: !this.state.isDeleting
 		});
+
+		axios.delete(`https://jsonplaceholder.typicode.com/users/${id}`)
+			.then(res => {
+				if (res.status === 200) {
+					this.setState({
+						...this.state,
+						isDeleting: !this.state.isDeleting
+					});
+
+					dispatch({
+						type: "DELETE_CONTACT",
+						payload: id
+					});
+				}
+			});
 	}
 
 	render() {
@@ -33,6 +50,15 @@ export default class Contact extends Component {
 
 						return (
 							<div className="mt-4 card card-body">
+								{
+									this.state.isDeleting ?
+										<React.Fragment>
+											<AlertMessage
+												className="alert alert-info"
+												message={`Deleting contact: ${name}`}
+											/>
+										</React.Fragment> : ""
+								}
 								<h5 className="alert alert-dark">
 									Name: <strong> {name.toUpperCase()} </strong>
 									<span>
