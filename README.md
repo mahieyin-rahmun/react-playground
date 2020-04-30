@@ -1,4 +1,4 @@
-This is me starting out with learning React. Everything in this repo isn't optimized/doesn't work.
+This is me starting out with learning React by creating a Contact Manager App. Everything in this repo isn't guranteed to be optimized/in working state, and merely serves as my chronology of implementing various Components, Context Providers, Consumers, Routing and so on so that I can refer to them at a later time.
 
 The associated github page at https://mahieyin-rahmun.github.io/react-playground doesn't have all of its
 functionalities working, but hey, it's a start.
