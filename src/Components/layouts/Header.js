@@ -6,17 +6,17 @@ export default class Header extends Component {
 		let { title } = this.props;
 		return (
 			<nav className="navbar navbar-expand-lg navbar-dark bg-dark">
-				<Link className="navbar-brand" to="/">{title}</Link>
+				<Link className="navbar-brand" to="/react-playground">{title}</Link>
 				<div className="collapse navbar-collapse" id="navbarNav">
 					<ul className="navbar-nav">
 						<li className="nav-item active">
-							<Link className="nav-link" to="/">Home <span className="sr-only">(current)</span></Link>
+							<Link className="nav-link" to="/react-playground">Home <span className="sr-only">(current)</span></Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/add">Add Contact</Link>
+							<Link className="nav-link" to="/react-playground/add">Add Contact</Link>
 						</li>
 						<li className="nav-item">
-							<Link className="nav-link" to="/about">About</Link>
+							<Link className="nav-link" to="/react-playground/about">About</Link>
 						</li>
 					</ul>
 				</div>
