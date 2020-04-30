@@ -75,7 +75,7 @@ export default class Contact extends Component {
 										/>
 									</span>
 									<span className="float-right mr-4" style={{ color: "#000" }}>
-										<Link to={`/update/${id}`}>
+										<Link to={`/react-playground/update/${id}`}>
 											<FontAwesomeIcon icon="pen" />
 										</Link>
 									</span>
