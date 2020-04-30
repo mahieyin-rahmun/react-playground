@@ -71,18 +71,18 @@ export default class AddContact extends Component {
                 type: "ADD_CONTACT",
                 payload: response.data
               });
+
+              // reset state after adding new contact
+              this.setState({
+                name: "",
+                email: "",
+                phone: "",
+                errors: []
+              });
+
+              // redirect to the home page after adding new contact
+              this.props.history.push("/react-playground");
             });
-
-          // reset state after adding new contact
-          this.setState({
-            name: "",
-            email: "",
-            phone: "",
-            errors: []
-          });
-
-          // redirect to the home page after adding new contact
-          this.props.history.push("/react-playground");
         }
       });
   }
