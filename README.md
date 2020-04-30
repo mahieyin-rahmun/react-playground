@@ -1,3 +1,8 @@
+This is me starting out with learning React. Everything in this repo isn't optimized/doesn't work.
+
+The associated github page at https://mahieyin-rahmun.github.io/react-playground doesn't have all of its
+functionalities working, but hey, it's a start.
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
