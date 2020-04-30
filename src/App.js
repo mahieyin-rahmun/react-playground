@@ -6,6 +6,7 @@ import Contacts from './Components/contacts/Contacts'
 import { Provider } from './Context'
 import AddContact from './Components/contacts/AddContact'
 import About from './Components/pages/About'
+import NotFound from './Components/pages/NotFound'
 
 import { library } from '@fortawesome/fontawesome-svg-core'
 import { fab } from '@fortawesome/free-brands-svg-icons'
@@ -24,6 +25,7 @@ class App extends Component {
 							<Route exact path="/" component={Contacts} />
 							<Route exact path="/add" component={AddContact} />
 							<Route exact path="/about" component={About} />
+							<Route component={NotFound} />
 						</Switch>
 					</div>
 				</Router>
