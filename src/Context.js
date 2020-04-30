@@ -1,5 +1,4 @@
 import React, { Component } from 'react'
-import { generateID, maxIdLength } from './Utils'
 
 const Context = React.createContext();
 
@@ -27,31 +26,37 @@ const reducer = (state, action) => {
 
 export class Provider extends Component {
 	state = {
-		contacts: [
-			{
-				id: generateID(maxIdLength),
-				name: "John Doe",
-				email: "jdoe@gmail.com",
-				phone: "555-555-5555"
-			},
-			{
-				id: generateID(maxIdLength),
-				name: "Robert Downey Jr.",
-				email: "robertd@gmail.com",
-				phone: "333-333-3333"
-			},
-			{
-				id: generateID(maxIdLength),
-				name: "Luna Lovegood",
-				email: "luna.lovegood@outlook.com",
-				phone: "777-777-7777"
-			}
-		],
+		contacts: [],
 		// a function that is in charge of dispatching the actions from the UI to the Provider
 		dispatch: (action) => {
 			// the React API only takes the new state as the first argument now			
 			this.setState(reducer(this.state, action));
 		}
+	}
+
+	componentDidMount() {
+		fetch("https://jsonplaceholder.typicode.com/users")
+			.then((response) => response.json())
+			.then((jsonData) => {
+				let contactsData = [];
+
+				jsonData.forEach((user) => {
+					let userObject = {
+						id: user.id,
+						name: user.name,
+						email: user.email,
+						phone: user.phone
+					};
+
+					contactsData.push(userObject);
+				});
+
+				return contactsData;
+			})
+			.then((contactsData) => this.setState({
+				...this.state,
+				contacts: contactsData
+			}));
 	}
 
 	render() {
